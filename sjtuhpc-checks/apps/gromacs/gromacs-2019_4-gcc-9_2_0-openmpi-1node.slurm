@@ -2,7 +2,7 @@
 
 #SBATCH -J gromacs_test
 #SBATCH -p cpu
-#SBATCH -n 80
+#SBATCH -n 40
 #SBATCH --ntasks-per-node=40
 #SBATCH -o %j.out
 #SBATCH -e %j.err
