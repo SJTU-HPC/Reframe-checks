@@ -12,4 +12,4 @@ deploy checks codes to shared reframe directory:
     - master
     - merge_request
   script:
-    - rsync -avr --progress sjtuhpc-checks /lustre/share/tmp/reframe/
+    - sudo rsync -avr --progress sjtuhpc-checks /lustre/share/tmp/reframe/
