@@ -1,14 +1,13 @@
 #!/bin/bash
 
-#SBATCH -J gromacs_test
+#SBATCH -J gromacs-2019_4-gcc-9_2_0-openmpi-1node
 #SBATCH -p cpu
 #SBATCH -n 40
 #SBATCH --ntasks-per-node=40
 #SBATCH -o %j.out
 #SBATCH -e %j.err
 
-module purge
-module load gromacs/2020-cpu
+module load gromacs/2019.4-gcc-9.2.0-openmpi
 
 ulimit -s unlimited
 ulimit -l unlimited
