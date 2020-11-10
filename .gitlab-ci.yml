@@ -11,5 +11,8 @@ deploy checks codes to shared reframe directory:
   only:
     - master
     - merge_request
+  before_script:
+    - git clone https://git.hpc.sjtu.edu.cn/devops/reframe.git
   script:
-    - sudo rsync -avr --progress sjtuhpc-checks /lustre/share/tmp/reframe/
+    - mv sjtuhpc-checks reframe/
+    - sudo rsync -avr --progress reframe /lustre/share/tmp/
