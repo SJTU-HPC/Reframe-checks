@@ -15,5 +15,5 @@ deploy checks codes to shared reframe directory:
     - git clone https://github.com/eth-cscs/reframe.git
   script:
     - mv sjtuhpc-checks reframe/
-    - cp config/sjtupi2.py reframe/config && ln -s reframe/config/sjtupi2.py  reframe/settings.py
+    - cp config/sjtupi2.py reframe/config && ln -s config/sjtupi2.py  reframe/settings.py
     - sudo rsync -avr --progress reframe /lustre/share/tmp/
