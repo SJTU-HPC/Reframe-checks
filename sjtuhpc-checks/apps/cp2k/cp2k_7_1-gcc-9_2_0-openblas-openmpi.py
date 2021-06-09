@@ -30,7 +30,7 @@ class cp2k_7_1_gcc_9_2_0_openblas_openmpi(rfm.RunOnlyRegressionTest):
                                      self.stdout, 'perf', float),
         }
         references = {
-                'pi2:cpu':{'perf': (1.099, None, 0.05)}
+                'pi2:cpu':{'perf': (1.099, None, 0.05), None}
             }
         self.valid_systems = ['pi2:cpu']
         self.reference = references
