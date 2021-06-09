@@ -24,14 +24,14 @@ class cp2k_7_1_gcc_9_2_0_openblas_openmpi(rfm.RunOnlyRegressionTest):
         self.prerun_cmds = ['hostname']
         self.executable = 'mpirun --allow-run-as-root -np 40 cp2k.psmp'
         self.executable_opts = ['-i argon.inp','-o argon.out']
-        self.sanity_patterns = sn.assert_found(r'T I M I N G', self.stderr)
-        # self.perf_patterns = {
-        #     'perf': sn.extractsingle(r'Performance:\s+(?P<perf>\S+)\s+\S+',
-        #                              self.stderr, 'perf', float),
-        # }
-        # references = {
-        #         'pi2:cpu':{'perf': (43.399, None, 0.05, 'ns/day')}
-        #     }
+        self.sanity_patterns = sn.assert_found(r'T I M I N G', self.stdout)
+        self.perf_patterns = {
+            'perf': sn.extractsingle(r'CP2K\s+\d*\s+\d*.*\d*\s+\d*.*\d*\s+\d*.*\d*\s+\d*.*\d*\s+(?P<perf>\S+)',
+                                     self.stdout, 'perf', float),
+        }
+        references = {
+                'pi2:cpu':{'perf': (1.099, None, 0.05)}
+            }
         self.valid_systems = ['pi2:cpu']
         self.reference = references
         self.maintainers = ['blacknail']
